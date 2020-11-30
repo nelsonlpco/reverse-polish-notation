@@ -1,3 +1,5 @@
+import { isNumber } from "../utils/NumberHelper";
+
 export default class ExpressionHashMap {
   private _hashMap: Map<string, number> = new Map();
   private _key: string = 'A';
@@ -21,8 +23,9 @@ export default class ExpressionHashMap {
     let numberAux = '';
 
     for(var value of arrayExpression) {
-      if(!isNaN(Number(value)) || value === '.') {
+      if(isNumber(value) || value === '.') {
         numberAux += value;
+
         continue;
       }
 
